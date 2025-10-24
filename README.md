@@ -48,3 +48,5 @@ kubectl get pods
 kubectl logs -f <pod-name>
 kubectl get svc
 
+
+Edit the Config.toml file in the config folder to avoid p2p authentication failure from the server
