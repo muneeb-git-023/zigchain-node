@@ -1,1 +1,8 @@
+# Ignore unnecessary folders
+data/
+zigchain-docker/
+.git/
+*.log
+*.tmp
+*.cache
 
