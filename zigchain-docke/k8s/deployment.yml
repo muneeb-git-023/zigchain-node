@@ -1,1 +1,29 @@
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zigchain-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zigchain-node
+  template:
+    metadata:
+      labels:
+        app: zigchain-node
+    spec:
+      containers:
+        - name: zigchain-node
+          image: your_dockerhub_username/zigchain-node:latest
+          ports:
+            - containerPort: 26657
+            - containerPort: 26656
+            - containerPort: 1317
+          volumeMounts:
+            - name: zigchain-data
+              mountPath: /root/.zigchain/data
+      volumes:
+        - name: zigchain-data
+          persistentVolumeClaim:
+            claimName: zigchain-pvc
